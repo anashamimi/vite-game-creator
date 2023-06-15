@@ -1,16 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
-     {
-       path: '/',
-     name: 'home',
-      component: HomeView
+    {
+      path: '/',
+      name: 'home',
+      component: () => import('../views/HomeView.vue')
     },
-    
+    {
+      path: '/characters',
+      name: 'characters',
+      component: () => import('../views/CharacterList.vue')
+    },
+    {
+      path: '/characters/:slug',
+      name: 'show-character',
+      component: () => import('../views/SingleCharacter.vue')
+    },
+    //page not found error 404
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: () => import('../views/NotFound.vue')
+    }
+
   ]
 })
 
-export { router };
+export default router;
