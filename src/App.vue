@@ -1,6 +1,9 @@
 <template>
   <div>
-    <HeaderApp/>
+    <HeaderApp />
+  <main>
+    <router-view></router-view>
+  </main>
     <h1>ciao</h1>
   </div>
 </template>
