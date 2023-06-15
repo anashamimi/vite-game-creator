@@ -61,7 +61,7 @@ export default {
             }).finally(() => {
                 setTimeout(() => {
                     this.isLoading = false;
-                }, 50000);
+                }, 2000);
             })
         }
 
