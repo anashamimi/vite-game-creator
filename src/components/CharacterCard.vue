@@ -1,55 +1,48 @@
 <template>
-    <div>
-        <div class="main-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="fw-bold fs-2 py-4">Character: {{ $character.name }}</h1>
-
+    <div class="col-4">
+        <div class="card card-bg mb-3 shadow">
+            <div class="row align-items-center">
+                <div class="col-10">
+                    <h4 class="fs-4 card-title fw-bold text-center text-capitalize py-2">
+                        {{ character.name }}</h4>
                 </div>
-                <div class="col-12">
-                    <p class="badge badge-pill bg-dark p-2">Level: {{ $character.level }}</p>
-
+                <div class="col-2">
+                    <p class="card-text text-small fw-bold">{{  character.level }} lv.</p>
                 </div>
-                <div class="col-12">
-                    <p class="badge badge-pill bg-dark  p-2">Class: {{ $character.class }}</p>
 
-                </div>
-                <div class="col-12">
-                    <p class="badge badge-pill bg-dark p-2">Breed: {{ $character.race }}</p>
-
-                </div>
-                <div class="col-12">
-                    <p class="badge badge-pill bg-dark p-2">HP: {{ $character.lifepoint }}</p>
-
-                </div>
-                <div class="col-12 ">
-                    <p class="badge badge-pill bg-dark p-2">Strength: {{ $character.strength }}</p>
-
-                </div>
-                <div class="col-12 ">
-                    <p class="badge badge-pill bg-dark p-2">Agility: {{ $character.agility }}</p>
-
-                </div>
-                <div class="col-12">
-                    <p class="badge badge-pill bg-dark text-uppercase p-2">Main Weapon:
-                        {{ $character.main_weapon }}</p>
-
-                </div>
             </div>
-        </div>
+            <div class="card-body">
+
+                <p class="card-text"><span class="fw-bold text-capitalize">Breed:</span>
+                    {{  character.race }}</p>
+                <p class="card-text"><span class="fw-bold text-capitalize">class:</span>
+                    {{  character.class }}</p>
+                <p class="card-text"><span class="fw-bold text-capitalize">lifepoint:</span>
+                    {{  character.lifepoint }}</p>
+                <p class="card-text"><i class="fa-solid fa-dumbbell"></i>: {{  character.strength }} </p>
+                <p class="card-text"><i class="fa-solid fa-person-running"></i>: {{  character.agility }}
+                </p>
+                <p class="card-text"><span class="fw-bold text-capitalize">weapon:</span>
+                    {{  character.main_weapon }}</p>
+
+
+                <p>{{  character.type ?  character.type.name : 'No type' }}</p>
+
+                <p class="card-text">
+                    <router-link :to="{ name: 'show-character', params: { id: character.id } }" class="btn btn-warning">Vedi
+                        prodotto </router-link>
+                </p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'CharacterCard',
-        props: ['character'],
-        
-    }
+export default {
+    name: 'CharacterCard',
+    props: ['character'],
+
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

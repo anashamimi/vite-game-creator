@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
-        <Loader v-if="character === null" />
-        <div v-if="character">
+    <div class="container vh-100 pt-5">
+        <Loader v-if="isLoading" />
+        <div v-else>
 
             <h2 class="display-2 text-center fw-semibold">
                 {{ character.name }}
@@ -15,7 +15,18 @@
                 <p><span class="fw-bold">Agility <i class="fa-solid fa-person-running"></i>:</span>{{ character.agility }}
                 </p>
                 <p><span class="fw-bold">Strength <i class="fa-solid fa-dumbbell"></i>:</span> {{ character.strength }}</p>
-                <p><span class="fw-bold">Item:</span>{{ character.weapon }} </p>
+                <p><span class="fw-bold">Item:</span>{{ character.main_weapon }} </p>
+
+                <p class="card-text">{{ character.type ? character.type.name : 'No type specified' }}</p>
+                <div  class="d-flex align-items-center gap-2">
+                    <p v-for="weapon in character.weapons" class="text-bg-warning px-3 rounded-5">{{ weapon.name }}</p>
+                </div>
+
+                <p class="card-text">
+                    <router-link :to="{ name: 'characters' }" class="btn btn-primary">
+                        Back
+                    </router-link>
+                </p>
             </div>
 
         </div>
@@ -34,20 +45,24 @@ export default {
         return {
             character: null,
             apiUrl: 'http://127.0.0.1:8000/api',
+            isLoading: true,
         }
     },
     methods: {
-        getCharactert() {
-            axios.get(`${this.apiUrl}/character/${this.$route.params.slug}`).then((res) => {
-                if (res.data.success) {
-                    this.character = res.data.results;
-                } else {
-                    this.$router.push({ name: 'not-found' });
-                }
+        getCharacter() {
+            axios.get(`${this.apiUrl}/characters/${this.$route.params.id}`).then((res) => {
+
+                this.character = res.data.results;
+
             }).catch((error) => {
-                console.error(error);
-                // Gestisci l'errore in modo appropriato, ad esempio mostrando un messaggio all'utente
-            });
+                console.log(error);
+                console.log(error.response.data);
+                this.$router.push({ name: 'not-found', query: { e: error.response.data.message } });
+            }).finally(() => {
+                setTimeout(() => {
+                    this.isLoading = false;
+                }, 50000);
+            })
         }
 
     },

@@ -14,7 +14,7 @@ const router = createRouter({
       component: () => import('../views/CharacterList.vue')
     },
     {
-      path: '/characters/:slug',
+      path: '/characters/:id',
       name: 'show-character',
       component: () => import('../views/SingleCharacter.vue')
     },
@@ -28,4 +28,4 @@ const router = createRouter({
   ]
 })
 
-export default router;
+export { router };

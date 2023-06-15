@@ -3,7 +3,7 @@
         <div class="progress-box">
             <div class="progress-fill"></div>
         </div>
-        <div class="progress-state state-load text-white">Loading…</div>
+        <div class="progress-state state-load">Loading…</div>
         <div class="progress-state state-finish ">Complete!</div>
     </div>
     <div class="dump-truck">
