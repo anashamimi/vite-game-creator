@@ -1,6 +1,6 @@
 <template>
     <Loader v-if="characters.length === 0" />
-    <div class="container" id="character-list">
+    <div class="container pt-5" id="character-list">
         <h1 class=" text-center p-4 text-white text-uppercase">characters list</h1>
         <div class="row gy-4 mb-4">
             <CharacterCard v-for="(character, index) in characters" :key="character.id" :character="character" />
