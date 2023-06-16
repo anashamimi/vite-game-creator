@@ -3,9 +3,12 @@
         <Loader v-if="isLoading" />
         <div v-else>
 
-            <h2 class="display-2 text-center fw-semibold">
-                {{ character.name }}
-            </h2>
+           <div class="text-center">
+                <h2 class="display-2 fw-semibold">
+                    {{ character.name }}
+                </h2>
+                <p class="fs-3">{{ character.type ? character.type.name : 'No type specified' }}</p>
+           </div>
 
             <div class="data-character">
                 <p><span class="fw-bold">Lv.</span>{{ character.level }} </p>
@@ -17,9 +20,9 @@
                 <p><span class="fw-bold">Strength <i class="fa-solid fa-dumbbell"></i>:</span> {{ character.strength }}</p>
                 <p><span class="fw-bold">Item:</span>{{ character.main_weapon }} </p>
 
-                <p class="card-text">{{ character.type ? character.type.name : 'No type specified' }}</p>
+                
                 <div  class="d-flex align-items-center gap-2">
-                    <p v-for="weapon in character.weapons" class="text-bg-warning px-3 rounded-5">{{ weapon.name }}</p>
+                    <p v-for="weapon in character.weapons" class="bg-team1 text-white px-3 rounded-5">{{ weapon.name }}</p>
                 </div>
 
                 <p class="card-text">
@@ -81,5 +84,9 @@ export default {
     background-color: rgba($color: #ffffff, $alpha: 0.5);
     font-size: 24px;
 
+}
+.bg-team1 {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(1, 186, 225, 1) 0%, rgba(1, 186, 225, 1) 47%, rgba(45, 65, 143, 1) 94%);
 }
 </style>
