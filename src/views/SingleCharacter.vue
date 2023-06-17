@@ -80,6 +80,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.container{
+    margin-top: 60px;
+}
+
 .data-character {
     background-color: rgba($color: #ffffff, $alpha: 0.5);
     font-size: 24px;
