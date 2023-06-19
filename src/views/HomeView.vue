@@ -4,6 +4,7 @@
         <!-- <img src="/public/image/img3.jpg" alt=""> -->
 
         <!-- <div class="layer"></div>  -->
+        
 
         <div class="bg">
             <div class="overlay">
@@ -18,28 +19,12 @@
                             <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
                         </div>
                     </div> -->
-                    <div id="productCarouselCaptions" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner carousel-width">
-                        <transition-group name="carousel-slide" tag="div">
-                            <div v-for="(item, index) in carouselItems" :key="index" :class="['carousel-item', { 'active': index === activeSlide }]">
-                                <img :src="item.image" style="height: 700px; " class="d-block w-100" :alt="item.alt">
-                            </div>
-                        </transition-group>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#productCarouselCaptions" data-bs-slide="prev" @click="prev()">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#productCarouselCaptions" data-bs-slide="next" @click="next()">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                    <div style="padding-top: 140px; padding-left: 550px;">
+                        <a href="" type="button" class="btn btn-dark d-inline-block">clicca qui per i personaggi</a>
                     </div>
                 </div>
             </div>
         </div>
-
-        
         
     </div>
 
@@ -49,47 +34,7 @@
 
 <script>
 export default  {
-    name: 'HomeView',
-    data() {
-      return {
-        activeSlide: 0,
-        carouselItems: [
-          {
-            image: 'public/image/chr1a.png',
-            alt: 'character1'
-          },
-          {
-            image: 'public/image/chr2a.png',
-            alt: 'character2'
-          },
-          {
-            image: 'public/image/chr3a.png',
-            alt: 'character3'
-          },
-          {
-            image: 'public/image/chr4a.png',
-            alt: 'character4'
-          },
-          {
-            image: 'public/image/chr5a.png',
-            alt: 'character5'
-          },
-          {
-            image: 'public/image/chr6a.png',
-            alt: 'character6'
-          },
-        ]
-      }
-    },
-    methods: {
-      next() {
-        this.activeSlide = (this.activeSlide + 1) % this.carouselItems.length;
-      },
-      prev() {
-        this.activeSlide = (this.activeSlide - 1 + this.carouselItems.length) % this.carouselItems.length;
-      }
-    }
-    
+    name: 'HomeView',    
 }
 </script>
 
@@ -109,27 +54,5 @@ export default  {
         background-position: center;
         
     }
-
-    .container{
-        margin: 82px;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0,0,0,0.7);
-    }
-
-    .carousel-slide-enter-active,
-  .carousel-slide-leave-active {
-    transition: opacity 0.5s;
-  }
-  
-  .carousel-slide-enter,
-  .carousel-slide-leave-to {
-    opacity: 0;
-  }
-
-  .carousel-width{
-    width: 75%;
-    margin: 0 auto;
-  }
     
 </style>
