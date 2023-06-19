@@ -9,7 +9,7 @@
         <div class="bg">
             <div class="overlay">
                 <div class="container" style="padding-top: 100px;">
-                    <h1 class="text-white">Personaggi fantastici e dove trovarli</h1>
+                    <h1 class="text-white display-3 text-center">Personaggi fantastici e dove trovarli</h1>
                 </div>
                 <!-- <div class="container px-4 px-lg-5 h-100">
                     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
